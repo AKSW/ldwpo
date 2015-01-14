@@ -1,0 +1,351 @@
+###############################################################################
+# 01. What are the people’s names that contribute in this project?
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?nameContributors WHERE {
+  ?project     rdf:type            ldpo:Project      .
+  ?project     ldpo:workflow       ?workflow         .
+  ?workflow    ldpo:firstStep      ?step             .
+  ?step        (ldpo:nextStep)*    ?linkedStep       .
+  ?linkedStep  ldpo:contributor    ?Contributor      .
+  ?Contributor ldpo:name           ?nameContributors .  
+}
+
+###############################################################################
+# 02. What is the person’s name that create this project?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct  ?project ?nameCreator WHERE {
+  ?project rdf:type     ldpo:Project .
+  ?project ldpo:creator ?Creator     .
+  ?Creator ldpo:name    ?nameCreator .
+}
+
+###############################################################################
+# 03. What is the project’s name?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?projectName WHERE {
+  ?project rdf:type     ldpo:Project .
+  ?project ldpo:name ?projectName .
+}
+
+###############################################################################
+# 04. What are the tools employed in this stage?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?stages ?tools WHERE {
+  ?project     rdf:type         ldpo:Project .
+  ?project     ldpo:name        ?projectName .
+  ?project     ldpo:workflow    ?workflow    .
+  ?workflow    ldpo:firstStep   ?step        .
+  ?step        (ldpo:nextStep)* ?linkedStep  .
+  ?linkedStep  ldpo:tool        ?tools       .
+  ?linkedStep  ldpo:stage       ?stages      .  
+}
+
+###############################################################################
+# 05. What are the algorithms implemented in this tool?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?tools ?algorithms WHERE {
+  ?tools  rdf:type        ldpo:Tool   .
+  ?tools  ldpo:algorithm  ?algorithms .
+}
+
+###############################################################################
+# 06. What are the parameters to set up in this algorithm?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?algorithm ?parameters WHERE {
+  ?algorithm   rdf:type        ldpo:Algorithm .
+  ?algorithm   ldpo:parameter  ?parameters    .
+}
+
+###############################################################################
+# 07. What are the parameter’s values for this tool in this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT ?linkedStep  ?tool ?parameter ?parameterValue WHERE {
+  ?workflow    rdf:type             ldpo:Workflow   .
+  ?workflow    ldpo:firstStep       ?step           .
+  ?step        (ldpo:nextStep)*     ?linkedStep     .
+  ?linkedStep  ldpo:tool            ?tool           .
+  ?linkedStep  ldpo:parameter       ?parameter      .  
+  ?linkedStep  ldpo:parameterValue  ?parameterValue .
+  ?tool        ldpo:parameter       ?parameter      .
+  ?tool        ldpo:parameterValue  ?parameterValue .
+  ?parameter   ldpo:parameterValue  ?parameterValue .
+}
+
+###############################################################################
+# 08. What are the input datasets of this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step  ?inputDataset WHERE {
+  ?step  rdf:type           ldpo:Step     .
+  ?step  ldpo:inputDataset  ?inputDataset .
+}
+
+###############################################################################
+# 09. What are the datasets of this project?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?dataset {
+    {
+	  SELECT distinct ?project ?dataset WHERE {
+        ?project     rdf:type           ldpo:Project .
+        ?project     ldpo:workflow      ?workflow    .
+        ?workflow    ldpo:firstStep     ?step        .
+        ?step        (ldpo:nextStep)*   ?linkedStep  .
+        ?linkedStep  ldpo:inputDataset  ?dataset     .
+      }
+    } UNION {
+      SELECT distinct ?project ?dataset WHERE {
+        ?project     rdf:type             ldpo:Project .
+        ?project     ldpo:hasWorkflow     ?workflow    .
+        ?workflow    ldpo:firstStep       ?step        .
+        ?step        (ldpo:hasNextStep)*  ?linkedStep  .
+        ?linkedStep  ldpo:outputDataset   ?dataset     .
+      }
+   }
+}
+
+###############################################################################
+# 10. What are the stages of this project?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?stages WHERE {
+  ?project     rdf:type         ldpo:Project .
+  ?project     ldpo:workflow    ?workflow    .
+  ?workflow    ldpo:firstStep   ?step        .
+  ?step        (ldpo:nextStep)* ?linkedStep  .
+  ?linkedStep  ldpo:stage       ?stages      .  
+}
+
+###############################################################################
+# 11. What is done over the dataset in this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?linkedStep ?shortDescription WHERE {
+  ?project     rdf:type              ldpo:Project      .
+  ?project     ldpo:workflow         ?workflow         .
+  ?workflow    ldpo:firstStep        ?step             .
+  ?step        (ldpo:nextStep)*      ?linkedStep       .
+  ?linkedStep  ldpo:shortDescription ?shortDescription .
+}
+
+###############################################################################
+# 12. What is the output dataset of this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step  ?outputDataset WHERE {
+  ?step  rdf:type            ldpo:Step     .
+  ?step  ldpo:outputDataset  ?outputDataset .
+}
+
+###############################################################################
+# 13. What is the previous step of this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step ?previousStep WHERE {
+  ?step  rdf:type           ldpo:Step     .
+  ?step  ldpo:previousStep  ?previousStep .
+}
+
+###############################################################################
+# 14. What is the next step of this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step ?nextStep WHERE {
+  ?step  rdf:type        ldpo:Step  .
+  ?step  ldpo:nextStep   ?nextStep  .
+}
+
+###############################################################################
+# 15. What is the license of this dataset?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?license {
+  ?dataset  rdf:type      ldpo:Dataset .
+  ?dataset  ldpo:license  ?license     .
+}
+
+###############################################################################
+# 16. What is the format of this dataset?
+# Almost same as competence question n. 29 and n. 30
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?format {
+  ?dataset  rdf:type         ldpo:Dataset .
+  ?dataset  ldpo:fileFormat  ?format      .
+}
+
+###############################################################################
+# 17. What are the steps done in this stage?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?linkedStep ?stage WHERE {
+  ?project     rdf:type         ldpo:Project .
+  ?project     ldpo:workflow    ?workflow    .
+  ?workflow    ldpo:firstStep   ?step        .
+  ?step        (ldpo:nextStep)* ?linkedStep  .
+  ?linkedStep  ldpo:stage       ?stage       .
+} ORDER BY ?stage
+
+###############################################################################
+# 18. What are the project’s goals?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?goal WHERE {
+  ?project  rdf:type   ldpo:Project .
+  ?project  ldpo:goal  ?goal        .
+}
+
+###############################################################################
+# 19. What is the default value of this parameter?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT ?parameter ?defaultValue WHERE {
+  ?parameter  rdf:type         ldpo:Parameter  .
+  ?parameter  ldpo:defaultValue ?defaultValue  .
+}
+
+###############################################################################
+# 20. Where is stored this input dataset?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?local WHERE {
+  ?dataset  rdf:type          ldpo:Dataset .
+  ?s        ldpo:inputDataset ?dataset     . 
+  ?dataset  ldpo:location     ?local       . 
+}
+
+###############################################################################
+# 21. Where is stored this output dataset?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?local WHERE {
+  ?dataset  rdf:type            ldpo:Dataset .
+  ?s        ldpo:outputDataset  ?dataset     . 
+  ?dataset  ldpo:location       ?local       . 
+}
+
+###############################################################################
+# 22. When will be this dataset updated?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?nextUpdateDate WHERE {
+  ?dataset  rdf:type             ldpo:Dataset    .
+  ?dataset  ldpo:nextUpdateDate  ?nextUpdateDate . 
+}
+
+###############################################################################
+# 23. When was this dataset updated at last time?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?lastUpdatedDate WHERE {
+  ?dataset  rdf:type              ldpo:Dataset     .
+  ?dataset  ldpo:lastUpdatedDate  ?lastUpdatedDate . 
+}
+
+###############################################################################
+# 24. When was the step executed?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step ?executedDate WHERE {
+  ?step  rdf:type           ldpo:Step     .
+  ?step  ldpo:executedDate  ?executedDate . 
+}
+
+###############################################################################
+# 25. When did the workflow start?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?workflow ?startedDate WHERE {
+  ?workflow  rdf:type          ldpo:Workflow .
+  ?workflow  ldpo:startedDate  ?startedDate .
+}
+
+###############################################################################
+# 26. When did the workflow finish?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?workflow ?endedDate WHERE {
+  ?workflow  rdf:type        ldpo:Workflow .
+  ?workflow  ldpo:endedDate  ?endedDate .
+}
+
+###############################################################################
+# 27. Who are the people that contribute in this project?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?project ?contributor  WHERE {
+  ?project     rdf:type            ldpo:Project      .
+  ?project     ldpo:workflow       ?workflow         .
+  ?workflow    ldpo:firstStep      ?step             .
+  ?step        (ldpo:nextStep)*    ?linkedStep       .
+  ?linkedStep  ldpo:contributor    ?contributor      .
+}
+
+
+###############################################################################
+# 28. Who is the responsible for this step?
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?step ?contributor WHERE {
+  ?step  rdf:type          ldpo:Step      .
+  ?step  ldpo:contributor  ?contributor   .
+}
+
+###############################################################################
+# 29. How is the input dataset stored?
+# Almost same as competence question n. 16
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?format {
+  ?dataset  rdf:type           ldpo:Dataset .
+  ?s        ldpo:inputDataset  ?dataset     .
+  ?dataset  ldpo:fileFormat    ?format      .
+}
+
+###############################################################################
+# 30. How is the output dataset stored?
+# Almost same as competence question n. 16
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ldpo: <http://ldpo.aksw.org/terms/1.0/>
+
+SELECT distinct ?dataset ?format {
+  ?dataset  rdf:type            ldpo:Dataset .
+  ?s        ldpo:outputDataset  ?dataset     .
+  ?dataset  ldpo:fileFormat     ?format      .
+}
