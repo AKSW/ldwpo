@@ -7,7 +7,6 @@ Report Generator
 ====
 
 ```
-To use reportgen go to reportgen/ folder and run
-$ java -jar reportgen.jar
-This command outputs help message
+To use Report Generator Tool go to reportgen/ folder and run the generatereports.sh shell script.
+"$ java -jar reportgen.jar" command will output a help message for the Report Generator tool.
 ```
