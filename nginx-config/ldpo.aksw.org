@@ -1,0 +1,17 @@
+server {
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name ldpo.aksw.org *.ldpo.aksw.org;
+
+	location /terms/1.0/ldpo.owl {
+	    types { }
+	    default_type application/rdf+xml;
+	    alias /home/akswadmin/ldpo/1.0/ldpo.owl;
+	}
+
+	location /terms/1.0 {
+		rewrite ^(.*)$ http://ldpo.aksw.org/terms/1.0/ldpo.owl;
+	}
+}
