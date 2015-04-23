@@ -174,111 +174,115 @@ SELECT DISTINCT ?nameProject ?nameDataset WHERE {
   ?inputDataset  ldwpo:name          ?nameDataset      .  
 } ORDER BY ?project
 
-
-
-
-
-
-I stopped here!!!
-
-
-
-
-
 #####################################################################################################################
 10. What steps are done in this stage?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?project ?stages ?linkedStep 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasStage ?stages   .  
-} ORDER BY ?stages
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?ldWorkflow ?stage ?linkedStep WHERE {
+  ?project       rdf:type            ldwpo:LDWProject  .
+  ?stage         rdf:type            ldwpo:Stage       .
+  ?step          rdf:type            ldwpo:LDWStep     .
+  ?ldWorkflow    rdf:type            ldwpo:LDWorkflow  .
+  ?project       ldwpo:name          ?nameProject      .
+  ?project       ldwpo:ldWorkflow    ?ldWorkflow       .
+  ?ldWorkflow    ldwpo:firstLdwStep  ?step             .
+  ?step          (ldwpo:nextStep)*   ?linkedStep       .
+  ?linkedStep    ldwpo:task          ?task             .
+  ?stage         ldwpo:task          ?task             .  
+} ORDER BY ?project ?stage
 
 #####################################################################################################################
 11. What is the previous step of this step?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?linkedStep ?previousStep 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasPreviousStep ?previousStep   .  
-}
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?ldWorkflow ?linkedStep ?previousStep WHERE {
+  ?project       rdf:type            ldwpo:LDWProject  .
+  ?step          rdf:type            ldwpo:LDWStep     .
+  ?linkedStep    rdf:type            ldwpo:LDWStep     .
+  ?previousStep  rdf:type            ldwpo:LDWStep     .
+  ?ldWorkflow    rdf:type            ldwpo:LDWorkflow  .
+  ?project       ldwpo:name          ?nameProject      .
+  ?project       ldwpo:ldWorkflow    ?ldWorkflow       .
+  ?ldWorkflow    ldwpo:firstLdwStep  ?step             .
+  ?ldWorkflow    ldwpo:ldwStep       ?linkedStep       .
+  ?ldWorkflow    ldwpo:ldwStep       ?previousStep     .
+  ?step          (ldwpo:nextStep)*   ?linkedStep       .
+  ?linkedStep    ldwpo:previousStep  ?previousStep     .
+} ORDER BY ?project
+
 
 #####################################################################################################################
 12. What is the next step of this step?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?linkedStep ?nextStep 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasNextStep ?nextStep   .  
-}
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?ldWorkflow ?linkedStep ?nextStep WHERE {
+  ?project       rdf:type            ldwpo:LDWProject  .
+  ?step          rdf:type            ldwpo:LDWStep     .
+  ?linkedStep    rdf:type            ldwpo:LDWStep     .
+  ?previousStep  rdf:type            ldwpo:LDWStep     .
+  ?ldWorkflow    rdf:type            ldwpo:LDWorkflow  .
+  ?project       ldwpo:name          ?nameProject      .
+  ?project       ldwpo:ldWorkflow    ?ldWorkflow       .
+  ?ldWorkflow    ldwpo:firstLdwStep  ?step             .
+  ?ldWorkflow    ldwpo:ldwStep       ?linkedStep       .
+  ?ldWorkflow    ldwpo:ldwStep       ?nextStep         .
+  ?step          (ldwpo:nextStep)*   ?linkedStep       .
+  ?linkedStep    ldwpo:nextStep      ?nextStep         .
+} ORDER BY ?project
+
+
+
+
+
+
 
 #####################################################################################################################
 13. What is the format of the dataset?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?project ?dataset ?storedFormat {
-    {
-	  SELECT distinct
-        ?project ?dataset ?storedFormat 
-      WHERE 
-	  {
-        ?project     rdf:type            lspr:Project .
-        ?project     lspr:hasName        ?projectName .
-        ?project     lspr:hasWorkflow    ?workflow    .
-        ?workflow    lspr:hasInitialStep ?step        .
-        ?step        (lspr:hasNextStep)* ?linkedStep  .
-        ?linkedStep  lspr:hasInputDataset ?dataset .
-		?dataset     lspr:hasStoredFormat ?storedFormat .      }
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?nameDataset WHERE {
+  {
+    SELECT ?nameProject ?nameDataset WHERE {
+      ?project       rdf:type            ldwpo:LDWProject  .
+      ?project       ldwpo:name          ?nameProject      .
+      ?project       ldwpo:ldWorkflow    ?ldworkflow       .
+      ?ldworkflow    ldwpo:firstLdwStep  ?step             .
+      ?step          (ldwpo:nextStep)*   ?linkedStep       .
+      ?linkedStep    ldwpo:inputDataset  ?inputDataset     .
+      ?inputDataset  ldwpo:name          ?nameDataset      .  
+      ?inputDataset  ldwpo:name          ?nameDataset      .  
+	  
     }
-    UNION 
-	{
-      SELECT distinct
-        ?project ?dataset ?storedFormat 
-      WHERE 
-	  {
-        ?project     rdf:type            lspr:Project .
-        ?project     lspr:hasName        ?projectName .
-        ?project     lspr:hasWorkflow    ?workflow    .
-        ?workflow    lspr:hasInitialStep ?step        .
-        ?step        (lspr:hasNextStep)* ?linkedStep  .
-        ?linkedStep  lspr:hasOutputDataset ?dataset   .
-		?dataset     lspr:hasStoredFormat ?storedFormat .
-      }
-   }
-}
-
-
+  }
+  UNION 
+  {
+    SELECT ?nameProject ?nameDataset WHERE {
+      ?project       rdf:type             ldwpo:LDWProject  .
+      ?project       ldwpo:name           ?nameProject      .
+      ?project       ldwpo:ldWorkflow     ?ldworkflow       .
+      ?ldworkflow    ldwpo:firstLdwStep   ?step             .
+      ?step          (ldwpo:nextStep)*    ?linkedStep       .
+      ?linkedStep    ldwpo:outputDataset  ?outputDataset    .
+      ?outputDataset  ldwpo:name          ?nameDataset      .  
+    }
+  }
+} ORDER BY ?project
 
 #####################################################################################################################
 14. What are the project’s goals?

@@ -1,0 +1,89 @@
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:135): ID: dbpedia
+Var: ?x
+Prefixes: {dc=http://purl.org/dc/terms/, dbpedia-p=http://dbpedia.org/property/, diseasome=http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/, rdfs=http://www.w3.org/2000/01/rdf-schema#, drugbank=http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/, foaf=http://xmlns.com/foaf/0.1/, dbpedia=http://dbpedia.org/ontology/, sider=http://www4.wiwiss.fu-berlin.de/sider/resource/sider/, owl=http://www.w3.org/2002/07/owl#, rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#}
+Endpoint: http://dbpedia.org/sparql
+Graph: null
+Restrictions: [?x rdf:type dbpedia:Drug]
+Properties: [rdfs:label]
+Functions: {rdfs:label={rdfs:label=nolang->lowercase}}
+Page size: 1000
+Type: sparql
+
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:136): ID: drugbank
+Var: ?y
+Prefixes: {dc=http://purl.org/dc/terms/, dbpedia-p=http://dbpedia.org/property/, diseasome=http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/, rdfs=http://www.w3.org/2000/01/rdf-schema#, drugbank=http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/, foaf=http://xmlns.com/foaf/0.1/, dbpedia=http://dbpedia.org/ontology/, sider=http://www4.wiwiss.fu-berlin.de/sider/resource/sider/, owl=http://www.w3.org/2002/07/owl#, rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#}
+Endpoint: http://www4.wiwiss.fu-berlin.de/drugbank/sparql
+Graph:  
+Restrictions: [?y rdf:type drugbank:drugs]
+Properties: [rdfs:label, drugbank:genericName]
+Functions: {rdfs:label={name=nolang->lowercase}, drugbank:genericName={name=nolang->lowercase}}
+Page size: 1000
+Type: sparql
+
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:141): Loading source data ...
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/1970571190.ser
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for dbpedia
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [rdfs:label]
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dbpedia-p: <http://dbpedia.org/property/>
+PREFIX diseasome: <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX sider: <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?x ?v0
+WHERE {
+?x rdf:type dbpedia:Drug .
+?x rdfs:label ?v0 .
+}
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+04.12.2014 14:15:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 1000
+04.12.2014 14:15:52 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 1000 to 2000
+04.12.2014 14:15:53 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 2000 to 3000
+04.12.2014 14:15:53 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 3000 to 4000
+04.12.2014 14:15:54 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 4000 to 5000
+04.12.2014 14:15:54 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 5000 to 6000
+04.12.2014 14:15:54 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 6000 to 7000
+04.12.2014 14:15:55 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 7000 to 8000
+04.12.2014 14:15:55 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 8000 to 9000
+04.12.2014 14:15:55 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 9000 to 10000
+04.12.2014 14:15:55 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 10000 to 11000
+04.12.2014 14:15:56 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 11000 to 12000
+04.12.2014 14:15:56 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 12000 to 13000
+04.12.2014 14:15:57 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 13000 to 14000
+04.12.2014 14:15:58 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 14000 to 15000
+04.12.2014 14:16:00 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 15000 to 16000
+04.12.2014 14:16:02 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 16000 to 17000
+04.12.2014 14:16:02 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 17000 to 18000
+04.12.2014 14:16:02 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:248): Retrieved 16358 triples and 5578 entities.
+04.12.2014 14:16:02 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:249): Retrieving statements took 11.554 seconds.
+04.12.2014 14:16:02 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.saveToFile(HybridCache.java:179): Serializing 5578 objects to /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/1970571190.ser
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:146): Loading target data ...
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/1510789814.ser
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for drugbank
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [rdfs:label, drugbank:genericName]
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX dbpedia-p: <http://dbpedia.org/property/>
+PREFIX diseasome: <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX sider: <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?y ?v0 ?v1
+WHERE {
+?y rdf:type drugbank:drugs .
+?y rdfs:label ?v0 .
+?y drugbank:genericName ?v1 .
+}
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+04.12.2014 14:16:03 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 1000

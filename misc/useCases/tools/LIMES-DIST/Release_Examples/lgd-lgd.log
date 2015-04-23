@@ -1,0 +1,72 @@
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:135): ID: linkedgeodata
+Var: ?x
+Prefixes: {geos=http://www.opengis.net/ont/geosparql#, lgdo=http://linkedgeodata.org/ontology/, geom=http://geovocab.org/geometry#}
+Endpoint: http://linkedgeodata.org/sparql
+Graph: null
+Restrictions: [?x a lgdo:RelayBox]
+Properties: [geom:geometry/geos:asWKT]
+Functions: {geom:geometry/geos:asWKT={polygon=null}}
+Page size: 2000
+Type: sparql
+
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:136): ID: linkedgeodata
+Var: ?y
+Prefixes: {geos=http://www.opengis.net/ont/geosparql#, lgdo=http://linkedgeodata.org/ontology/, geom=http://geovocab.org/geometry#}
+Endpoint: http://linkedgeodata.org/sparql
+Graph: null
+Restrictions: [?y a lgdo:RelayBox]
+Properties: [geom:geometry/geos:asWKT]
+Functions: {geom:geometry/geos:asWKT={polygon=null}}
+Page size: 2000
+Type: sparql
+
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:141): Loading source data ...
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/771694915.ser
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for linkedgeodata
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [geom:geometry/geos:asWKT]
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX geos: <http://www.opengis.net/ont/geosparql#>
+PREFIX lgdo: <http://linkedgeodata.org/ontology/>
+PREFIX geom: <http://geovocab.org/geometry#>
+SELECT DISTINCT ?x ?v0
+WHERE {
+?x a lgdo:RelayBox .
+?x geom:geometry ?w1 .
+?w1 geos:asWKT ?v0 .
+}
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+04.12.2014 13:46:44 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 2000
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 2000 to 4000
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:248): Retrieved 277 triples and 277 entities.
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:249): Retrieving statements took 0.778 seconds.
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.saveToFile(HybridCache.java:179): Serializing 277 objects to /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/771694915.ser
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:146): Loading target data ...
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/-225377438.ser
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for linkedgeodata
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [geom:geometry/geos:asWKT]
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX geos: <http://www.opengis.net/ont/geosparql#>
+PREFIX lgdo: <http://linkedgeodata.org/ontology/>
+PREFIX geom: <http://geovocab.org/geometry#>
+SELECT DISTINCT ?y ?v0
+WHERE {
+?y a lgdo:RelayBox .
+?y geom:geometry ?w1 .
+?w1 geos:asWKT ?v0 .
+}
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 2000
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 2000 to 4000
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:248): Retrieved 277 triples and 277 entities.
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:249): Retrieving statements took 0.194 seconds.
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.saveToFile(HybridCache.java:179): Serializing 277 objects to /home/srautenberg/Soft/LIMES-DIST/Release_Examples/cache/-225377438.ser
+04.12.2014 13:46:45 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:159): Getting links ...
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:162): Got links in 637ms.
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.io.SerializerFactory.getSerializer(SerializerFactory.java:22): Getting serializer with name TAB
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:172): Using TabSeparatedSerializer to serialize
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:191): Returned 415 links above acceptance threshold.
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:192): Returned 4046 links to review.
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:199): Mapping carried out in 2.211 seconds
+04.12.2014 13:46:46 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:200): Done.
