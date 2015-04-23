@@ -1,0 +1,42 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix freq: <http://purl.org/cld/freq/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix uniprot: <http://purl.uniprot.org/uniprot/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lod.unicentro.br/QualisBrasil/> 
+	dcterms:title "Qualis Brasil" ;
+	dcterms:description "Qualis Brasil encompasses indirect scores for research papers in journals, according to 48 knowledge fields, such as computer science, chemistry, medicine, among others. It is used to rank post-graduate programs, research proposals, or individual research scholarships. A typical entry of Qualis consists of ISSN, journal name, knowledge field, and qualified journal score. Moreover, the journal can be related to one or more scores, based on the relevance of the journal to the knowledge field." ;
+	dcterms:publisher  <Sandro_Rautenberg>;
+	dcterms:issued "2015-04-01T00:00:00.000+01:00"^^xsd:dateTime ;
+	dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+
+	dcterms:subject <http://dbpedia.org/page/Scientometrics> ;
+	dcterms:subject <http://dbpedia.org/page/Bibliometrics>;
+	dcterms:source <http://qualis.capes.gov.br/webqualis/principal.seam> ;							
+	void:sparqlEndpoint <http://lodkem.led.ufsc.br:8890/sparql> ;
+	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Journal_0004-5411_KnowledgeField_2_YearEvaluation_2014_Qualis_A1> ;
+	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Journal_0004-5411> ;
+	void:exampleResource <http://lod.unicentro.br/QualisBrasil/KnowledgeField_2> ;
+	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Qualis_A1> ;
+	void:exampleResource <http://lod.unicentro.br/QualisBrasil/YearEvaluation_2014> ;
+	void:triples 3590448 ;
+    void:entities 698669 ;
+	void:properties 9 ;
+dcterms:accrualPeriodicity freq:annual ;
+a void:Dataset ;.
+
+<Sandro_Rautenberg> 
+	rdfs:label "Sandro Rautenberg" ;
+	foaf:mbox <mailto:srautenberg@unicentro.br> ;
+	foaf:homepage <http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4700255Z6>; 
+	a foaf:Person; .
