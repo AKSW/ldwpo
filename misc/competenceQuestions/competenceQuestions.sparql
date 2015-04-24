@@ -276,97 +276,100 @@ SELECT DISTINCT ?nameProject ?nameDataset WHERE {
   }
 } ORDER BY ?project
 
-
-
-
 #####################################################################################################################
 14. What are the project’s goals?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?project ?projectGoal 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasGoal        ?projectGoal .
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?goal WHERE {
+  ?project  rdf:type    ldwpo:LDWProject .
+  ?project  ldwpo:name  ?nameProject     .
+  ?project  ldwpo:goal  ?goal            .
 }
 
 #####################################################################################################################
 15. What is the license of the dataset?
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameDataset ?nameLicense WHERE {
+  ?dataset  rdf:type       ldwpo:Dataset .
+  ?license  rdf:type       ldwpo:License .
+  ?dataset  ldwpo:name     ?nameDataset  .
+  ?dataset  ldwpo:license  ?license      .
+  ?license  ldwpo:name     ?nameLicense  .
+}
 
 #####################################################################################################################
 16. What kind of task is this step?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?linkedStep ?application 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasApplication ?application   .  
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?step ?task ?taskDescription WHERE {
+  ?step  rdf:type           ldwpo:LDWStep     .
+  ?task  rdf:type           ldwpo:Task        .
+  ?step  ldwpo:task         ?task             .
+  ?task  ldwpo:description  ?taskDescription  .
 }
 
 #####################################################################################################################
 17. What tasks do this tool be applied?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?tool ?application 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasApplication ?application .
-  ?linkedStep  lspr:hasTool        ?tool .
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?task ?tool WHERE {
+  ?step  rdf:type    ldwpo:LDWStep  .
+  ?task  rdf:type    ldwpo:Task     .
+  ?tool  rdf:type    ldwpo:Tool     .
+  ?step  ldwpo:task  ?task          .
+  ?step  ldwpo:tool  ?tool          .
 }
 
 #####################################################################################################################
 18. Who are the people that contribute in this project?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?project ?contributor 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasContributor ?contributor .
-}
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?nameProject ?nameContributor WHERE {
+  ?project            rdf:type                   ldwpo:LDWProject   .
+  ?project            ldwpo:name                 ?nameProject       .
+  ?project            ldwpo:ldWorkflow           ?ldworkflow        .
+  ?ldworkflow         ldwpo:firstLdwStep         ?step              .
+  ?ldworkflow         ldwpo:ldWorkflowExecution  ?workflowExecution .
+  ?step               (ldwpo:nextStep)*          ?linkedStep        .
+  ?linkedStep         ldwpo:ldwStepExecution     ?stepExecution     .
+  ?workflowExecution  ldwpo:ldwStepExecution     ?stepExecution     .
+  ?stepExecution      ldwpo:contributor          ?contributor       .
+  ?contributor        ldwpo:name                 ?nameContributor   .  
+} ORDER BY ?project
 
 #####################################################################################################################
 19. Who is responsible for this step?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct
-  ?project ?linkedStep ?contributor 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasContributor ?contributor .
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?stepExecution ?nameContributor WHERE {
+  ?stepExecution  rdf:type           ldwpo:LDWStepExecution  .
+  ?stepExecution  ldwpo:contributor  ?contributor            .
+  ?contributor    ldwpo:name         ?nameContributor        .  
 }
 
 #####################################################################################################################
@@ -375,17 +378,14 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?dataset ?local 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasInputDataset ?dataset .
-  ?dataset     lspr:hasStoredLocal ?local . 
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?dataset ?location WHERE {
+  ?dataset   rdf:type            ldwpo:Dataset  .
+  ?step      rdf:type            ldwpo:LDWStep  .  
+  ?location  rdf:type            ldwpo:Location .
+  ?step      ldwpo:inputDataset  ?dataset       .
+  ?dataset   ldwpo:location      ?location      .
 }
 
 #####################################################################################################################
@@ -394,17 +394,14 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?dataset ?local 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasOutputDataset ?dataset .
-  ?dataset     lspr:hasStoredLocal ?local . 
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?dataset ?location WHERE {
+  ?dataset   rdf:type             ldwpo:Dataset  .
+  ?step      rdf:type             ldwpo:LDWStep  .  
+  ?location  rdf:type             ldwpo:Location .
+  ?step      ldwpo:outputDataset  ?dataset       .
+  ?dataset   ldwpo:location       ?location      .
 }
 
 #####################################################################################################################
@@ -413,17 +410,14 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?dataset ?format 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasInputDataset ?dataset .
-  ?dataset     lspr:hasStoredFormat ?format . 
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?dataset ?fileFormat WHERE {
+  ?dataset     rdf:type            ldwpo:Dataset    .
+  ?step        rdf:type            ldwpo:LDWStep    .  
+  ?FileFormat  rdf:type            ldwpo:FileFormat .
+  ?step        ldwpo:inputDataset  ?dataset         .
+  ?dataset     ldwpo:fileFormat    ?fileFormat      .
 }
 
 #####################################################################################################################
@@ -432,108 +426,51 @@ PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?dataset ?format 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasOutputDataset ?dataset .
-  ?dataset     lspr:hasStoredFormat ?format . 
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?dataset ?fileFormat WHERE {
+  ?dataset     rdf:type             ldwpo:Dataset    .
+  ?step        rdf:type             ldwpo:LDWStep    .  
+  ?FileFormat  rdf:type             ldwpo:FileFormat .
+  ?step        ldwpo:outputDataset  ?dataset         .
+  ?dataset     ldwpo:fileFormat     ?fileFormat      .
 }
 
 #####################################################################################################################
-24. When was the step performed?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?linkedStep ?performedDate
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasPerformedDate ?performedDate .
+24. When was the step executed?
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?stepExecution ?startedDate WHERE {
+  ?stepExecution  rdf:type           ldwpo:LDWStepExecution  .
+  ?stepExecution  ldwpo:startedDate  ?startedDate            .
 }
 
 #####################################################################################################################
 25. When did the workflow start?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?workflow ?initialDate
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialDate ?initialDate .
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?workflowExecution ?startedDate WHERE {
+  ?workflowExecution  rdf:type           ldwpo:LDWorkflowExecution  .
+  ?workflowExecution  ldwpo:startedDate  ?startedDate               .
 }
 
 #####################################################################################################################
 26. When did the workflow finish? 
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?workflow ?finalDate
-WHERE {
-  ?project     rdf:type          lspr:Project .
-  ?project     lspr:hasName      ?projectName .
-  ?project     lspr:hasWorkflow  ?workflow    .
-  ?workflow    lspr:hasFinalDate ?finalDate .
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:   <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ldwpo: <http://ldwpo.aksw.org/terms/1.0/>
+
+SELECT DISTINCT ?workflowExecution ?endedDate WHERE {
+  ?workflowExecution  rdf:type         ldwpo:LDWorkflowExecution  .
+  ?workflowExecution  ldwpo:endedDate  ?endedDate               .
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
