@@ -19,10 +19,11 @@
 	dcterms:publisher  <Sandro_Rautenberg>;
 	dcterms:issued "2015-04-01T00:00:00.000+01:00"^^xsd:dateTime ;
 	dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-
 	dcterms:subject <http://dbpedia.org/page/Scientometrics> ;
 	dcterms:subject <http://dbpedia.org/page/Bibliometrics>;
 	dcterms:source <http://qualis.capes.gov.br/webqualis/principal.seam> ;							
+	dcterms:accrualPeriodicity freq:annual ;
+
 	void:sparqlEndpoint <http://lodkem.led.ufsc.br:8890/sparql> ;
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Journal_0004-5411_KnowledgeField_2_YearEvaluation_2014_Qualis_A1> ;
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Journal_0004-5411> ;
@@ -32,7 +33,6 @@
 	void:triples 3590448 ;
     void:entities 698669 ;
 	void:properties 9 ;
-dcterms:accrualPeriodicity freq:annual ;
 a void:Dataset ;.
 
 <Sandro_Rautenberg> 
