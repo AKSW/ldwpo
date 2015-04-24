@@ -1,4 +1,0 @@
-java -jar tools/ldStackWorkflow.jar "ontology/LinkedDataProjectOntologyWithTestInstances.owl" "ldpo:project_limes_workflowExample" "ldpo:example_Limes_Scientific_Workflow" > logs/workflowLimes.log
-
-java -jar tools/ldStackWorkflow.jar "ontology/LinkedDataProjectOntologyWithTestInstances.owl" "ldpo:project_qualisbrasilSparlify" "ldpo:workflow_project_qualisbrasilSparlify" > logs/workflowQqualisBrasilSparlify.log
-

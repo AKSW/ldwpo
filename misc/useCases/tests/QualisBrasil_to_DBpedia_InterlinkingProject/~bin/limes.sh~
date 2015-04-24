@@ -1,3 +1,0 @@
-#!/bin/sh
-
-java -jar /home/srautenberg/Soft/LIMES-DIST/LIMES.jar $1 
