@@ -117,7 +117,6 @@ SELECT DISTINCT ?nameProject ?nameDataset WHERE {
   }
 } ORDER BY ?project
 
-
 #####################################################################################################################
 07. What are the stages of this project?
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -218,7 +217,6 @@ SELECT DISTINCT ?nameProject ?ldWorkflow ?linkedStep ?previousStep WHERE {
   ?linkedStep    ldwpo:previousStep  ?previousStep     .
 } ORDER BY ?project
 
-
 #####################################################################################################################
 12. What is the next step of this step?
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -241,12 +239,6 @@ SELECT DISTINCT ?nameProject ?ldWorkflow ?linkedStep ?nextStep WHERE {
   ?step          (ldwpo:nextStep)*   ?linkedStep       .
   ?linkedStep    ldwpo:nextStep      ?nextStep         .
 } ORDER BY ?project
-
-
-
-
-
-
 
 #####################################################################################################################
 13. What is the format of the dataset?
@@ -284,6 +276,9 @@ SELECT DISTINCT ?nameProject ?nameDataset WHERE {
   }
 } ORDER BY ?project
 
+
+
+
 #####################################################################################################################
 14. What are the project’s goals?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -299,13 +294,10 @@ WHERE {
 }
 
 #####################################################################################################################
-15. What news tools could be used in this stage?
+15. What is the license of the dataset?
 
 #####################################################################################################################
-16. What is the license of the dataset?
-
-#####################################################################################################################
-17. What kind of application is this step?
+16. What kind of task is this step?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -323,7 +315,7 @@ WHERE {
 }
 
 #####################################################################################################################
-18. What is the application of this tool?
+17. What tasks do this tool be applied?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -342,7 +334,7 @@ WHERE {
 }
 
 #####################################################################################################################
-19. Who are the people that contribute in this project?
+18. Who are the people that contribute in this project?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -360,7 +352,7 @@ WHERE {
 }
 
 #####################################################################################################################
-20. Who is responsible for this step?
+19. Who is responsible for this step?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -378,7 +370,7 @@ WHERE {
 }
 
 #####################################################################################################################
-21. Where is the input dataset stored?
+20. Where is the input dataset stored?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -397,7 +389,7 @@ WHERE {
 }
 
 #####################################################################################################################
-22. Where is the output dataset stored?
+21. Where is the output dataset stored?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -416,7 +408,7 @@ WHERE {
 }
 
 #####################################################################################################################
-23. How is the input dataset stored?
+22. How is the input dataset stored?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -435,7 +427,7 @@ WHERE {
 }
 
 #####################################################################################################################
-24. How is the output dataset stored?
+23. How is the output dataset stored?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -453,28 +445,8 @@ WHERE {
   ?dataset     lspr:hasStoredFormat ?format . 
 }
 
-
 #####################################################################################################################
-25. When was the dataset updated last time?
-PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl:  <http://www.w3.org/2002/07/owl#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX lspr: <http://lod.unicentro.br/LOD2StackProjectReproducibility#>
-SELECT distinct 
-  ?project ?dataset ?lastUpdateDate 
-WHERE {
-  ?project     rdf:type            lspr:Project .
-  ?project     lspr:hasName        ?projectName .
-  ?project     lspr:hasWorkflow    ?workflow    .
-  ?workflow    lspr:hasInitialStep ?step        .
-  ?step        (lspr:hasNextStep)* ?linkedStep  .
-  ?linkedStep  lspr:hasOutputDataset ?dataset .
-  ?dataset     lspr:hasLastUpdatedDate ?lastUpdateDate . 
-}
-
-#####################################################################################################################
-26. When was the step performed?
+24. When was the step performed?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -492,7 +464,7 @@ WHERE {
 }
 
 #####################################################################################################################
-27. When did the workflow start?
+25. When did the workflow start?
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -508,7 +480,7 @@ WHERE {
 }
 
 #####################################################################################################################
-28. When did the workflow finish? 
+26. When did the workflow finish? 
 PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl:  <http://www.w3.org/2002/07/owl#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>

@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -f logs/workflowLimes.log ] ; then rm logs/workflowLimes.log fi
+java -jar tools/ldStackWorkflow.jar "ontology/LinkedDataProjectOntologyWithTestInstances.owl" "ldpo:project_limes_workflowExample" "ldpo:example_Limes_Scientific_Workflow" > logs/workflowLimes.log
+
+
