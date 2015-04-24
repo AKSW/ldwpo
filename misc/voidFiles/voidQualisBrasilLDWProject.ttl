@@ -31,7 +31,7 @@
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Qualis_A1> ;
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/YearEvaluation_2014> ;
 	void:triples 3590448 ;
-    void:entities 698669 ;
+	void:entities 698669 ;
 	void:properties 9 ;
 a void:Dataset ;.
 
