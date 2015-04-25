@@ -9,7 +9,7 @@ To do that, the environment should be setup:
 - install Sparqlify
 - create the sh files for calling LIMES and Sparqlify (Ivan did that for me)
 
- we can execute toy expirements for:
+ we can execute toy experiments for:
  - executing the workflow for qualisConversion LDWProject 2005
  - executing the workflow for qualisConversion LDWProject 2006
  - executing the workflow for qualisInterlinking LDWProject
