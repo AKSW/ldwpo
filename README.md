@@ -5,7 +5,7 @@ Maintaining Linked Data datasets is a time-consuming and resource-expensive acti
 
 
 Project folders:
-====
+====  
 -1.0 - the folder of LDWPO current version.   
 -misc - contains the technical report, use cases (toy experiments, and VoID description.  
 -tools - contains the Report Generator and Workflow Execution Tools, for using with LDWPO.   
