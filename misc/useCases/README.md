@@ -2,17 +2,12 @@ Instructions for running toy experiments
 ===
 
 There are three possible toy experiments to run LDWPO:  
-* runningQualisBrasilProjectReports.sh
+* **runningQualisBrasilProjectReports.sh** - create some documents in reports folder;
+* **runningQualisConversion.sh** - extract data from legacy system and upload as linked data, using Sparqlify; and
+* **runningQualisInterlinking.sh** - interlink data to DBpeda, using LIMES.
 
-To do that, the environment should be setup:
-- user and password for virtuoso = "dba" and "dba"
-- user and password for mysql = 
-- install LIMES
-- install Sparqlify
-- create the sh files for calling LIMES and Sparqlify (Ivan did that for me)
+To run those experiments, the environment should be setup:
+* install LIMES, Sparqlify, Virtuoso TripleStore, MySql Server following the instructions; 
+* change user and password for virtuoso TripleStore= "dba" and "dba";
+* change user, database, and password for Mysql Server = "qualisproject", "qualisproject", "qualisproject";
 
- we can execute toy experiments for:
- - executing the workflow for qualisConversion LDWProject 2005
- - executing the workflow for qualisConversion LDWProject 2006
- - executing the workflow for qualisInterlinking LDWProject
- - generating the LDWProject Report of qualisConversion
