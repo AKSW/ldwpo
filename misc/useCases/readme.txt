@@ -1,6 +1,8 @@
-here will come instructions for running toy expirements with
-1000 samples qualis 2005 + 1000 samples 2006, simulating
-loading procedures in legacy database.
+Instructions for running toy experiments
+===
+
+There are three possible toy experiments to run LDWPO:  
+* runningQualisBrasilProjectReports.sh
 
 To do that, the environment should be setup:
 - user and password for virtuoso = "dba" and "dba"
