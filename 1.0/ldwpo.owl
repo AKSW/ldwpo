@@ -66,9 +66,8 @@
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/contributor">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">contributor</rdfs:label>
-        <rdfs:comment xml:lang="en">Object property that points to a Person who performed a Step. As restrictions, one Step can be performed by one Person and one Person can
-be related to one or more Steps.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that relates a Person to the Steps. As restrictions, one Step can be performed by one Person and one Person can be related to
+one or more Steps.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Person"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Step"/>
         <owl:equivalentProperty rdf:resource="&dc;contributor"/>
@@ -86,8 +85,7 @@ be related to one or more Steps.
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/creator">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">creator</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to a Person who created an LDWProject. As restrictions, one LDWProject is created by one or more Person and one Person can be related to one or more LDWProjects.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to a Person who created an LDWProject. As restrictions, one LDWProject is created by one or more Person and one Person can be related to one or more LDWProjects.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWProject"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Person"/>
         <owl:equivalentProperty rdf:resource="&dc;creator"/>
@@ -101,8 +99,7 @@ be related to one or more Steps.
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/firstLdwStep">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">firstLdwStep</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to initial LDWStep of an LDWorkflow. As restrictions, one LDWorkflow has one LDWStep as the firstLdwStep
-and one LDWStep can be the firstLdwStep in one or more LDWorkflows.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the initial LDWStep of an LDWorkflow. As restrictions, one LDWorkflow has one LDWStep as the firstLdwStep and one LDWStep can be the firstLdwStep in one or more LDWorkflows.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
     </owl:ObjectProperty>
@@ -115,7 +112,7 @@ and one LDWStep can be the firstLdwStep in one or more LDWorkflows.</rdfs:commen
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">firstLdwStepExecution</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">n Object property that points to initial LDWStepExecution of an LDWorkflowExecution. As restrictions, one LDWorkflowExecution has one LDWStepExecution as firstLdwStepExecution and one LDWStepExecution is the firstLdwStepExecution of a single LDWorkflowExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the initial LDWStep-Execution of an LDWorkflowExecution. As restrictions, one LDWorkflowExecution has one LDWStepExecution as firstLdwStepExecution and one LDWStepExecution is the firstLdwStepExecution of a single LDWorkflowExecution.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStepExecution"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution"/>
     </owl:ObjectProperty>
@@ -127,9 +124,7 @@ and one LDWStep can be the firstLdwStep in one or more LDWorkflows.</rdfs:commen
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/format">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">fileFormat</rdfs:label>
-        <rdfs:comment xml:lang="en">object property that points to the FileFormat
-of a Dataset. As restrictions, one FileFormat
-is related to one or more Dataset(s). And a Dataset is related to a single FileFormat. [owl:equivalentProperty - dc:format]</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Format of a Dataset. As restrictions, one Format is related to one or more Datasets and a Dataset is related to a single Format.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Dataset"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Format"/>
         <owl:equivalentProperty rdf:resource="&dc;format"/>
@@ -142,8 +137,7 @@ is related to one or more Dataset(s). And a Dataset is related to a single FileF
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/homepage">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">homepage</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the Homepage of a LDWProject. As restrictions, one Homepage is related to one or more LDWProjects and a
-LDWProject is related to a single Homepage.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Homepage of a LDWProject. As restrictions, one Homepage is related to one or more LDWProjects and a LDWProject is related to a single Homepage</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Homepage"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWProject"/>
     </owl:ObjectProperty>
@@ -154,8 +148,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/inputDataset">
         <rdfs:label xml:lang="en">inputDataset</rdfs:label>
-        <rdfs:comment xml:lang="en">Object property that points to the Datasets used as input by an LDWStep. As restrictions, one LDWStep has one or more Dataset as input and one Dataset can be related as input to one or more LDWSteps.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Datasets used as input by an LDWStep. As restrictions, one LDWStep has one or more Datasets as input and one Dataset can be related as input to one or more LDWSteps.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Dataset"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <owl:equivalentProperty rdf:resource="&opmv;used"/>
@@ -170,7 +163,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/ldWorkflow">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">ldWorkflow</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the LDWorkflows related to an LDWProject. As restrictions, one LDWProject has one or more LDWorkflows and one LDWorkflow is related to single LDWorkflow.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the LDWorkflows related to an LDWProject. As restrictions, one LDWProject has one or more LDWorkflows and one LDWorkflow is related to a single LDWProject.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWProject"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
     </owl:ObjectProperty>
@@ -182,7 +175,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/ldWorkflowExecution">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string"> ldWorkflowExecution</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the LDWorkflowExecutions related to an LDWorklow. As restrictions, one LDWorkflow has one or more LDWorkflowExecutions and one LDWorkflowExecution is related to single LDWorkflow</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the LDWorkflowExecutions related to an LDWorklow. As restrictions, one LDWorkflow has one or more LDWorkflowExecutions and one LDWorkflowExecution is related to a single LDWorkflow.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution"/>
     </owl:ObjectProperty>
@@ -193,7 +186,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/ldwStep">
         <rdfs:label rdf:datatype="&xsd;string">ldwStep</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the LDWSteps related to an LDWorklow. As restrictions, one LDWorkflow has one or more LDWSteps and one LDWStep is related to one or more LDWorkflow</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the LDWSteps related to an LDWorklow. As restrictions, one LDWorkflow has one or more LDWSteps and one LDWStep is related to one or more LDWorkflows.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
     </owl:ObjectProperty>
@@ -205,7 +198,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/ldwStepExecution">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">ldwStepExecution</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the LDWStepExecutions related to an LDWorklowExecution and an LDWStep. As restrictions, one LDWStepExecution is related to a single LDWStep and to a single LDWorkflowExecution, and both LDWorkflowExecution and LDWStep are related to one or more LDWStepExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the LDWStepExecutions related to an LDWorklowExecution and an LDWStep. As restrictions, one LDWStepExecution is related to a single LDWStep and to a single LDWorkflowExecution, and both LDWorkflowExecution and LDWStep are related to one or more LDWStepExecution.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStepExecution"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution"/>
@@ -218,7 +211,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/license">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">license</rdfs:label>
-        <rdfs:comment xml:lang="en">Object property that points to the type of License of a Dataset. As restrictions, one Dataset has one License and one License is related to one or more Datasets.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the type of License of a Dataset. As restrictions, one Dataset has one License and one License is related to one or more Datasets. </rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Dataset"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/License"/>
         <owl:equivalentProperty rdf:resource="&dc;rights"/>
@@ -231,7 +224,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/location">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">location</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the physical location of an Artifact, which could be an URL or local filesystem path. As restrictions, one Artifact has one Location and one Location is related to one or more Artifacts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the physical location of an Artifact, which could be an URL or local filesystem path. As restrictions, one Artifact has one Location and one Location is related to one or more Artifacts.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Location"/>
         <owl:equivalentProperty rdf:resource="&prov;atLocation"/>
@@ -245,8 +238,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">message</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the Message generated as feedback when a LDWStepExecution is executed. As restrictions, one LDWStepExecution has one Message and one Message is related to one LDWStepExecution.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Message generated as feedback when a LDWStepExecution is executed. As restrictions, one LDWStepExecution has one Message and one Message is related to one LDWStepExecution.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStepExecution"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Message"/>
     </owl:ObjectProperty>
@@ -285,7 +277,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/postcondition">
         <rdfs:label rdf:datatype="&xsd;string">postcondition</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the Condition to achieve after an LDWorkflow is executed by an LDWorkflowExecution. As restrictions, one Workflow has one or more Conditions as postcondition and one Condition can be related as postcondiction to one or more LDWorkflows</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Condition to achieve after an LDWorkflow is executed by an LDWorkflowExecution. As restrictions, one LDWorkflow has one or more Conditions as postcondition and one Condition can be related as postcondiction to one or more LDWorkflows.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Condition"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
     </owl:ObjectProperty>
@@ -296,7 +288,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/precondition">
         <rdfs:label rdf:datatype="&xsd;string">precondition</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the Condition to be presented before an LDWorkflow is executed by an LDWorkflowExecution. As restrictions, one Workflow has one or more Conditions as precondition and one Condition can be related as precondiction to one or more LDWorkflows.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Condition to be presented before an LDWorkflow is executed by an LDWorkflowExecution. As restrictions, one LDWorkflow has one or more Conditions as precondition and one Condition can be related as recondiction to one or more LDWorkflows.</rdfs:comment>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Condition"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflow"/>
     </owl:ObjectProperty>
@@ -324,7 +316,8 @@ LDWProject is related to a single Homepage.</rdfs:comment>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">report</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the Report generated as feedback when a LDWorkflowExecution is executed. It groups all Messages and Statuses from the related LDWStepExecution. As restriction, one LDWorkflowExecution has only one Report and one Report is related to only one LDWorkflowExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Report generated as feedback when an LDWorkflowExecution is executed. It groups all Messages and Statuses from the related LDWStepExecution. As restriction, one LDWorkflowExecution has only one Report and one Report is related to only one LDWorkflowExecution.
+</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Report"/>
     </owl:ObjectProperty>
@@ -335,7 +328,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/stage">
         <rdfs:label xml:lang="en">stage</rdfs:label>
-        <rdfs:comment xml:lang="en">object property that points to the Stages of a Process. As restrictions, one Process has one or more Stages and one Stage is related to one or more Processes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Stages of a Process. As restrictions, one Process has one or more Stages and one Stage is related to one or more Processes.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Process"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Stage"/>
     </owl:ObjectProperty>
@@ -347,7 +340,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/status">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">status</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">. Object property that points to the Status of executing a LDWStepExecution. As restriction, one LDWStepExecution has only one Status and one Status is related to one or more LDWStepExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Status of executing a LDWStepExecution. As restriction, one LDWStepExecution has only one Status and one Status is related to one or more LDWStepExecution.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStepExecution"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Status"/>
     </owl:ObjectProperty>
@@ -358,7 +351,8 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/task">
         <rdfs:label rdf:datatype="&xsd;string">task</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Object property that points to the Task of an LDWStep or Stage. As restrictions, one Task is related one or more Stages and or or more LDWSteps and one LDWStep and one Stage are related to one or more Tasks.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the Task of an LDWStep or Stage. As restrictions, one Task is related one or more Stages and one or more LDWSteps, and one LDWStep and one Stage are related to one or more Tasks.
+</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Stage"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Task"/>
@@ -371,7 +365,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/tool">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">tool</rdfs:label>
-        <rdfs:comment xml:lang="en">Object property that points to the Tool employed in a LDWStep. As restrictions, one Step can employ one Tool and one Tool is related to one or more LDWSteps.</rdfs:comment>
+        <rdfs:comment xml:lang="en"> Object property that points to the Tool employed in a LDWStep. As restrictions, one Step can employ one Tool and one Tool is related to one or more LDWSteps.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Tool"/>
         <owl:equivalentProperty rdf:resource="&opmv;used"/>
@@ -384,7 +378,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/toolConfiguration">
         <rdfs:label rdf:datatype="&xsd;string">toolConfiguration</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string"> Object property that points to the ToolConfiguration used by a Tool in a LDWStep. As restrictions, one Tool uses one or more ToolConfigurations and one LDWStep uses one ToolConfigurations. And one ToolConfiguration can be used by one Tool and also used by one or more LDWStep.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Object property that points to the ToolConfiguration used by a Tool in a LDWStep. As restrictions, one Tool uses one or more ToolConfigurations and one LDWStep uses one ToolConfigurations. And one ToolConfiguration can be used by one Tool and also used by one or more LDWStep.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Tool"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/ToolConfiguration"/>
@@ -528,7 +522,7 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:DatatypeProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/command">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">command</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Data property that contains the console command of a planned LDWStep. It relates the Tool and ToolConfiguration to be used by an LDWStepExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data property that contains the console command of a planned LDWStep. It relates the Tool and toolConfiguration to be used by an LDWStepExecution. As restriction, command is a functional property and accepts only xsd:String values.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWStep"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -540,8 +534,8 @@ LDWProject is related to a single Homepage.</rdfs:comment>
     <owl:DatatypeProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/description">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label rdf:datatype="&xsd;string">description</rdfs:label>
-        <rdfs:comment xml:lang="en">Data property used by a KnwoledgeBody to describe instances. As restriction, description is a functional property and accepts only xsd:String
-values.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data property used by a KnwoledgeBody to describe instances. As restriction, description is a functional property and accepts only xsd:String values.
+</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
         <owl:equivalentProperty rdf:resource="&dc;description"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -581,7 +575,7 @@ values.</rdfs:comment>
     <owl:DatatypeProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/name">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">name</rdfs:label>
-        <rdfs:comment xml:lang="en">Data property used by Artifact, KnwoledgeBody, License, and Person, to name instances. As restriction, name is a functional property and accepts only xsd:String values</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data property used by Artifact, KnwoledgeBody, License, and Person, to name instances. As restriction, name is a functional property and accepts only xsd:String values.</rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/License"/>
@@ -774,8 +768,7 @@ values.</rdfs:comment>
         <owl:equivalentClass rdf:resource="&opmv;Artifact"/>
         <owl:equivalentClass rdf:resource="&prov;Entity"/>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment rdf:datatype="&xsd;string"> Abstract class that provides the name to the elements used to establish
-an LDWStep.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Abstract class that provides the name to the elements used to establish an LDWStep.</rdfs:comment>
     </owl:Class>
     
 
@@ -785,7 +778,7 @@ an LDWStep.</rdfs:comment>
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Condition">
         <rdfs:label rdf:datatype="&xsd;string">Condition</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of KnowledgeBody that represents (i) the obligations to be cover before an LDWorkflowExecution is performed (object property: precondition), and (ii) the settings achieved after the LDWorkflowExecution is successfully finished (object property: postcondition).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody that represents (i) the obligations to be cover before an LDWorkflowExecution is performed (object property: precondition), and (ii) the settings achieved after the LDWorkflowExecution is successfully finished (object property: postcondition).</rdfs:comment>
     </owl:Class>
     
 
@@ -796,7 +789,7 @@ an LDWStep.</rdfs:comment>
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
         <owl:equivalentClass rdf:resource="&dc;Dataset"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
-        <rdfs:comment xml:lang="en"> Subclass of Artifact that represents a collection of data. Related to a LDWStep, it is used as an input or an output Artifact</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Artifact that represents a collection of data. Related to a LDWStep, it is used as an input or an output Artifact.</rdfs:comment>
     </owl:Class>
     
 
@@ -806,7 +799,7 @@ an LDWStep.</rdfs:comment>
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Execution">
         <rdfs:label rdf:datatype="&xsd;string">Execution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of KnowledgeBody and abstract class for LDWorkflowExecution and LDWStepExecution used for describing the execution issues an LDWProject. It describes a particular point of time with startedDate and endedDate data properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody and abstract class for LDWorkflowExecution and LDWStepExecution used for describing the execution issues an LDWProject. It describes a particular point of time with startedDate and endedDate data properties.</rdfs:comment>
     </owl:Class>
     
 
@@ -817,7 +810,7 @@ an LDWStep.</rdfs:comment>
         <rdfs:label xml:lang="en">Format</rdfs:label>
         <owl:equivalentClass rdf:resource="&dc;MediaTypeOrExtent"/>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment xml:lang="en"> Class that represents the encode format of a Dataset, such as SQL, CSV, or RDF.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Class that represents the encode format of a Dataset, such as SQL, CSV, or RDF.</rdfs:comment>
     </owl:Class>
     
 
@@ -827,8 +820,7 @@ an LDWStep.</rdfs:comment>
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Homepage">
         <rdfs:label rdf:datatype="&xsd;string">Homepage</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Artifact that represents the the initial or main web page of an LDWProject.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Artifact that represents the the or main web page of an LDWProject.</rdfs:comment>
     </owl:Class>
     
 
@@ -838,7 +830,7 @@ an LDWStep.</rdfs:comment>
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody">
         <rdfs:label rdf:datatype="&xsd;string">KnowledgeBody</rdfs:label>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Top abstract class for representing pieces of knowledge used on modeling an LDWProject, providing the name and description data properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Top abstract class for representing pieces of knowledge used on modeling an LDWProject, providing the name and description data properties.</rdfs:comment>
     </owl:Class>
     
 
@@ -849,8 +841,7 @@ an LDWStep.</rdfs:comment>
         <rdfs:label xml:lang="en">LDWProject</rdfs:label>
         <owl:equivalentClass rdf:resource="&foaf;Project"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
-        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody that represents an endeavour of creating or maintaining RDFDatasets.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody that represents an endeavour of creating or maintaining RDFDatasets.</rdfs:comment>
     </owl:Class>
     
 
@@ -864,7 +855,7 @@ an LDWStep.</rdfs:comment>
         <owl:equivalentClass rdf:resource="&pwo;Step"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Plan"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Step"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Plan and Step that represents an atomic unit of LDWorkflow.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Plan and Step that represents an atomic unit of LDWorkflow.</rdfs:comment>
     </owl:Class>
     
 
@@ -875,8 +866,7 @@ an LDWStep.</rdfs:comment>
         <rdfs:label rdf:datatype="&xsd;string">LDWStepExecution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Execution"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Step"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Execution and Step that represents an
-atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Execution and Step that represents an atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs:comment>
     </owl:Class>
     
 
@@ -897,8 +887,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution">
         <rdfs:label rdf:datatype="&xsd;string">LDWorkflowExecution</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Execution"/>
-        <rdfs:comment rdf:datatype="&xsd;string"> Subclass of Execution related to a particular execution of an LDWorkflow. Inside, it organizes a linked list of LDWStepExecutions.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Execution related to a particular execution of an LDWorkflow. Inside, it organizes a linked list of LDWStepExecutions.</rdfs:comment>
     </owl:Class>
     
 
@@ -920,7 +909,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
         <rdfs:label rdf:datatype="&xsd;string">Location</rdfs:label>
         <owl:equivalentClass rdf:resource="&prov;Location"/>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment rdf:datatype="&xsd;string"> Class that represents the path to access an Artifact.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Class that represents the path to access an Artifact.</rdfs:comment>
     </owl:Class>
     
 
@@ -930,7 +919,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Message">
         <rdfs:label rdf:datatype="&xsd;string">Message</rdfs:label>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Class that represents the feedback report originating from applying a Tool and a ToolConfiguration in order to modify an Dataset during an LDWStepExecution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Class that represents the feedback report originating from applying a Tool and a ToolConfiguration in order to modify an Dataset during an LDWStepExecution.</rdfs:comment>
     </owl:Class>
     
 
@@ -940,7 +929,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Method">
         <rdfs:label rdf:datatype="&xsd;string">Method</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of KnowledgeBody and abstract class for Process, Stage, and Task used for describing the methodological issues an LDWProject.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody and abstract class for Process, Stage, and Task Used to describe the methodological aspects of an LDWProject.</rdfs:comment>
     </owl:Class>
     
 
@@ -966,8 +955,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Plan">
         <rdfs:label rdf:datatype="&xsd;string">Plan</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/KnowledgeBody"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of KnowledgeBody and abstract class for LDWorkflow and LDWStep used for describing the planning issues an LDWProject.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of KnowledgeBody and abstract class for LDWorkflow and LDWStep used for describing the planning issues an LDWProject.</rdfs:comment>
     </owl:Class>
     
 
@@ -977,8 +965,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Process">
         <rdfs:label rdf:datatype="&xsd;string">Process</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Method"/>
-        <rdfs:comment rdf:datatype="&xsd;string"> Subclass of Method that represents a concise set of Stages used to maintain an RDFDataset.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Method that represents a concise set of Stages used to maintain an RDFDataset.</rdfs:comment>
     </owl:Class>
     
 
@@ -988,7 +975,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/RDFDataset">
         <rdfs:label rdf:datatype="&xsd;string">RDFDataset</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Dataset"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Dataset that represents a collection of data adherent to the RDF data model, consisting of triples with subject, predicate and object.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Dataset that represents a collection of data adherent to a valid RDF format.</rdfs:comment>
     </owl:Class>
     
 
@@ -998,8 +985,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Report">
         <rdfs:label rdf:datatype="&xsd;string">Report</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Artifact that represents a document generated by aggregating the Messages and Statuses of an LDWorkflowExecution.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Artifact that represents a document generated by aggregating the Messages and Statuses of an LDWorkflowExecution.</rdfs:comment>
     </owl:Class>
     
 
@@ -1021,7 +1007,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Status">
         <rdfs:label rdf:datatype="&xsd;string">Status</rdfs:label>
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Class that represents the classification for a Message (successful finished, unsuccessful finished, aborted, etc.).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Class that represents the classification for a Message (successful finished, unsuccessful finished, aborted, etc.).</rdfs:comment>
     </owl:Class>
     
 
@@ -1045,8 +1031,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Task">
         <rdfs:label rdf:datatype="&xsd;string">Task</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Method"/>
-        <rdfs:comment rdf:datatype="&xsd;string">Subclass of Method that represents the atomic unit of an established Process. It describes a best-practice for maintaining an RDFDataset.
-</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Method that represents the atomic unit of an established Process. It describes a best-practice for maintaining an RDFDataset.</rdfs:comment>
     </owl:Class>
     
 
@@ -1059,7 +1044,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
         <owl:equivalentClass rdf:resource="&prov;SoftwareAgent"/>
         <owl:equivalentClass rdf:resource="&foaf;Agent"/>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
-        <rdfs:comment xml:lang="en"> Subclass of Artifact that represents a computational implementation of one or more algorithm(s) suitable for processing data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Artifact that represents a computational implementation of one or more algorithm(s) suitable for processing data.</rdfs:comment>
     </owl:Class>
     
 
@@ -1069,7 +1054,7 @@ atomic unit of LDWorkflowExecution. It is related to a particular LDWStep.</rdfs
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/ToolConfiguration">
         <rdfs:label rdf:datatype="&xsd;string">ToolConfiguration</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Artifact"/>
-        <rdfs:comment rdf:datatype="&xsd;string">n. Subclass of Artifact that represents a the setup file to be used by a Tool, when defining a LDWStep.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Artifact that represents a the setup file to be used by a Tool, when defining a LDWStep.</rdfs:comment>
     </owl:Class>
     
 
