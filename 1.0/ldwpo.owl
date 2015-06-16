@@ -61,6 +61,17 @@
     
 
 
+    <!-- http://ldwpo.aksw.org/terms/1.0/activity -->
+
+    <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/activity">
+        <rdfs:label xml:lang="en">activity</rdfs:label>
+        <rdfs:comment xml:lang="en">Object property that points to the Activities of a Process. As restrictions, one Process has one or more Activities and one Activity is related to one or more Processes.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Activity"/>
+        <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Process"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ldwpo.aksw.org/terms/1.0/contributor -->
 
     <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/contributor">
@@ -329,17 +340,6 @@ one or more Steps.</rdfs:comment>
 </rdfs:comment>
         <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/LDWorkflowExecution"/>
         <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Report"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ldwpo.aksw.org/terms/1.0/stage -->
-
-    <owl:ObjectProperty rdf:about="http://ldwpo.aksw.org/terms/1.0/stage">
-        <rdfs:label xml:lang="en">stage</rdfs:label>
-        <rdfs:comment xml:lang="en">Object property that points to the Stages of a Process. As restrictions, one Process has one or more Stages and one Stage is related to one or more Processes.</rdfs:comment>
-        <rdfs:range rdf:resource="http://ldwpo.aksw.org/terms/1.0/Activity"/>
-        <rdfs:domain rdf:resource="http://ldwpo.aksw.org/terms/1.0/Process"/>
     </owl:ObjectProperty>
     
 
@@ -994,7 +994,7 @@ one or more Steps.</rdfs:comment>
     <owl:Class rdf:about="http://ldwpo.aksw.org/terms/1.0/Process">
         <rdfs:label rdf:datatype="&xsd;string">Process</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://ldwpo.aksw.org/terms/1.0/Method"/>
-        <rdfs:comment xml:lang="en">Subclass of Method that represents a concise set of Stages used to maintain an RDFDataset.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Subclass of Method that represents a concise set of Activities used to maintain an RDFDataset.</rdfs:comment>
     </owl:Class>
     
 
@@ -1230,7 +1230,6 @@ one or more Steps.</rdfs:comment>
 
     <owl:Class rdf:about="&pwo;Workflow"/>
     
-
 </rdf:RDF>
 
 
