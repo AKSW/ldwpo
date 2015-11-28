@@ -1,13 +1,13 @@
-Report Generator
+Generating a report
 ===
-To use lodFlowReport Tool:  
+To use lodFlowReport tool:  
 * go to the folder "tool/"; and  
 * run "$ java -jar lodflowReport.jar".  
 The command will output a help message for the Report Generator tool.
     
-Workflow Execution
+Running a workflow
 ===
-To use Workflow Execution Tool:  
+To use lodflowEngine tool:  
 * go to the folder "tool/"; and   
 * run "$ java -jar lodflowEngine.jar".   
 The command will output a help message for the Workflow Execution Tool.
