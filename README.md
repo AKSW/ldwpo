@@ -7,5 +7,5 @@ Maintaining Linked Data datasets is a time-consuming and resource-expensive acti
 Project folders:
 ====  
 * **1.0** - contains the LDWPO current version.   
-* **misc** - contains the technical report, use cases (toy experiments), VoID description, and sparql queries samples.  
+* **misc** - contains the technical report, use cases (toy experiments), VoID descriptions, and sparql queries samples.  
 * **tools** - contains the report generator and workflow execution tools for using with LDWPO.   
