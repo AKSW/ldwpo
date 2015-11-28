@@ -21,7 +21,7 @@
 	dcterms:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
 	dcterms:subject <http://dbpedia.org/page/Scientometrics> ;
 	dcterms:subject <http://dbpedia.org/page/Bibliometrics>;
-	dcterms:source <http://qualis.capes.gov.br/webqualis/principal.seam> ;							
+	dcterms:source <https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf> ;							
 	dcterms:accrualPeriodicity freq:annual ;
 
 	void:sparqlEndpoint <http://lodkem.led.ufsc.br:8890/sparql> ;
@@ -30,9 +30,9 @@
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/KnowledgeField_2> ;
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/Qualis_A1> ;
 	void:exampleResource <http://lod.unicentro.br/QualisBrasil/YearEvaluation_2014> ;
-	void:triples 3590448 ;
-	void:entities 698669 ;
-	void:properties 9 ;
+	void:triples 4319288 ;
+	void:entities 698668 ;
+	void:properties 11 ;
 a void:Dataset ;.
 
 <Sandro_Rautenberg> 

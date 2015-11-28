@@ -1,0 +1,40 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix freq: <http://purl.org/cld/freq/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix uniprot: <http://purl.uniprot.org/uniprot/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lod.unicentro.br/LattesProduction/> 
+	dcterms:title "Lattes Production" ;
+	dcterms:description "Lattes Production encompasses entries of research paper references in journals of the researchers from the UNICENTRO/Brazil University. For representing data, it uses Bibo and Bibtex vocabularies." ;
+	dcterms:publisher  <Sandro_Rautenberg>;
+	dcterms:issued "2015-11-01T00:00:00.000+01:00"^^xsd:dateTime ;
+	dcterms:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
+	dcterms:subject <http://dbpedia.org/page/Scientometrics> ;
+	dcterms:subject <http://dbpedia.org/page/Bibliometrics>;
+	dcterms:source <http://lattes.cnpq.br/> ;							
+	dcterms:accrualPeriodicity freq:annual ;
+
+	void:sparqlEndpoint <http://lodkem.led.ufsc.br:8890/sparql> ;
+	void:exampleResource <http://lod.unicentro.br/LattesProduction/BIBTEXArticle_Fuzzy_expert_system_for_predicting_pathological_stage_of_prostate_cancer0957-41742013> ;
+	void:exampleResource <http://lod.unicentro.br/LattesProduction/FOAFPerson_1550342830820869> ;
+	void:exampleResource <http://lod.unicentro.br/LattesProduction/Journal_0957-4174> ;
+	void:triples 73415 ;
+	void:entities 5557 ;
+	void:properties 13 ;
+a void:Dataset ;.
+
+<Sandro_Rautenberg> 
+	rdfs:label "Sandro Rautenberg" ;
+	foaf:mbox <mailto:srautenberg@unicentro.br> ;
+	foaf:homepage <http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4700255Z6>; 
+	a foaf:Person; .
