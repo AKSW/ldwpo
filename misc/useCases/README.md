@@ -5,7 +5,7 @@ For running toy experiments
 * **Requirements:**
  * on Ubuntu 12.04, install Sparqlify and Virtuoso Triple Store.
  * copy all the content of this github into a folder.
- * unzip the "Qualis\temp\csv\evaluations.7z" file into the folder (a 150 Mb csv file to convert to linked data).
+ * unzip the "Qualis\temp\csv\evaluations.7z" file into the folder (a ~150 Mb csv file will be extracted).
 
 * **Options for running:**
  * **periodicalPapersProject.sh**: runs the PeriodicalPapers LDWProject, converting a csv file to linked data, saving the data into a graph dubbed http://lod.unicentro.br/LattesProduction/. The graph will be hosted in localhost:8890/sparql.
