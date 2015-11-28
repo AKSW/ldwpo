@@ -1,11 +1,12 @@
 Running the toy experiments
 ====
 * **Special note:**
-Due to security reasons, the toy experiments skip the step of retrieving raw data from legacy databases. However, raw data are available in csv files to be converted in ntriples.
+Due to security reasons, the toy experiments skip the step "retrieving raw data from legacy systems" as it is originally planned. However, raw data are available in csv files to be converted in ntriples and run the experiments.
 
 * **Requirements:**
 ** on Ubuntu 12.04, install Sparqlify and Virtuoso Triple Store.
-** unzip the Qualis\temp\csv\evaluations.7z file into the folder (a 150 Mb csv file to convert to linked data).
+** copy all the content of this github into a folder.
+** unzip the "Qualis\temp\csv\evaluations.7z" file into the folder (a 150 Mb csv file to convert to linked data).
 
 * **options for running:**
 ** **periodicalPapersProject.sh**: runs the PeriodicalPapers LDWProject, converting a csv file to linked data, saving the data into a graph dubbed <http://lod.unicentro.br/LattesProduction/>. The graph will be hosted in localhost:8890/sparql.
