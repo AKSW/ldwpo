@@ -1,13 +1,13 @@
 Report Generator
 ===
-To use Report Generator Tool:  
-* go to the folder "tool/reportgen/"; and  
-* run "$ java -jar reportgen.jar".  
+To use lodFlowReport Tool:  
+* go to the folder "tool/"; and  
+* run "$ java -jar lodflowReport.jar".  
 The command will output a help message for the Report Generator tool.
     
 Workflow Execution
 ===
 To use Workflow Execution Tool:  
-* go to the folder "tool/ldStackWorkflow/"; and   
-* run "$ java -jar ldStackWorkflow.jar".   
+* go to the folder "tool/"; and   
+* run "$ java -jar lodflowEngine.jar".   
 The command will output a help message for the Workflow Execution Tool.
