@@ -1,0 +1,120 @@
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:135): ID: dbpedia
+Var: ?x
+Prefixes: {dc=http://purl.org/dc/elements/1.1/, dbpedia-p=http://dbpedia.org/property/, rdfs=http://www.w3.org/2000/01/rdf-schema#, bibo=http://purl.org/ontology/bibo/, dbpedia=http://dbpedia.org/ontology/, owl=http://www.w3.org/2002/07/owl#, rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#, qualis=http://lod.unicentro.br/QualisBrasil/}
+Endpoint: http://dbpedia.org/sparql
+Graph: null
+Restrictions: [?x rdf:type dbpedia:PeriodicalLiterature]
+Properties: [dbpedia:issn]
+Functions: {dbpedia:issn={dbpedia:issn=nolang->lowercase}}
+Page size: 1000
+Type: sparql
+
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:136): ID: localqualis
+Var: ?y
+Prefixes: {dc=http://purl.org/dc/elements/1.1/, dbpedia-p=http://dbpedia.org/property/, rdfs=http://www.w3.org/2000/01/rdf-schema#, bibo=http://purl.org/ontology/bibo/, dbpedia=http://dbpedia.org/ontology/, owl=http://www.w3.org/2002/07/owl#, rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#, qualis=http://lod.unicentro.br/QualisBrasil/}
+Endpoint: http://localhost:8890/sparql/QualisBrasil/
+Graph: null
+Restrictions: [?y rdf:type bibo:Journal]
+Properties: [bibo:issn]
+Functions: {bibo:issn={bibo:issn=nolang->lowercase}}
+Page size: 1000
+Type: sparql
+
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:141): Loading source data ...
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Desktop/windows/LDWPO/cache/-518474649.ser
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for dbpedia
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [dbpedia:issn]
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dbpedia-p: <http://dbpedia.org/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX qualis: <http://lod.unicentro.br/QualisBrasil/>
+SELECT DISTINCT ?x ?v0
+WHERE {
+?x rdf:type dbpedia:PeriodicalLiterature .
+?x dbpedia:issn ?v0 .
+}
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+20.11.2015 20:24:32 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 1000
+20.11.2015 20:24:35 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 1000 to 2000
+20.11.2015 20:24:36 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 2000 to 3000
+20.11.2015 20:24:37 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 3000 to 4000
+20.11.2015 20:24:37 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 4000 to 5000
+20.11.2015 20:24:38 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 5000 to 6000
+20.11.2015 20:24:39 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 6000 to 7000
+20.11.2015 20:24:39 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 7000 to 8000
+20.11.2015 20:24:40 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 8000 to 9000
+20.11.2015 20:24:40 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 9000 to 10000
+20.11.2015 20:24:40 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 10000 to 11000
+20.11.2015 20:24:41 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:248): Retrieved 9065 triples and 5965 entities.
+20.11.2015 20:24:41 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:249): Retrieving statements took 8.589 seconds.
+20.11.2015 20:24:41 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.saveToFile(HybridCache.java:179): Serializing 5965 objects to /home/srautenberg/Desktop/windows/LDWPO/cache/-518474649.ser
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:146): Loading target data ...
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:232): Checking for file /home/srautenberg/Desktop/windows/LDWPO/cache/2071633528.ser
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.getData(HybridCache.java:248): No cached data found for localqualis
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.QueryModuleFactory.getQueryModule(QueryModuleFactory.java:19): Generating <sparql> reader
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:93): Properties are [bibo:issn]
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:139): Query issued is 
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dbpedia-p: <http://dbpedia.org/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX qualis: <http://lod.unicentro.br/QualisBrasil/>
+SELECT DISTINCT ?y ?v0
+WHERE {
+?y rdf:type bibo:Journal .
+?y bibo:issn ?v0 .
+}
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:141): Querying the endpoint.
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 0 to 1000
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 1000 to 2000
+20.11.2015 20:24:47 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 2000 to 3000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 3000 to 4000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 4000 to 5000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 5000 to 6000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 6000 to 7000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 7000 to 8000
+20.11.2015 20:24:48 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 8000 to 9000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 9000 to 10000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 10000 to 11000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 11000 to 12000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 12000 to 13000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 13000 to 14000
+20.11.2015 20:24:49 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 14000 to 15000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 15000 to 16000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 16000 to 17000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 17000 to 18000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 18000 to 19000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 19000 to 20000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 20000 to 21000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 21000 to 22000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 22000 to 23000
+20.11.2015 20:24:50 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 23000 to 24000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 24000 to 25000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 25000 to 26000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 26000 to 27000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 27000 to 28000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 28000 to 29000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 29000 to 30000
+20.11.2015 20:24:51 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 30000 to 31000
+20.11.2015 20:24:52 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 31000 to 32000
+20.11.2015 20:24:52 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:149): Getting statements 32000 to 33000
+20.11.2015 20:24:52 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:248): Retrieved 31399 triples and 31399 entities.
+20.11.2015 20:24:52 INFO  [main] de.uni_leipzig.simba.query.SparqlQueryModule.fillCache(SparqlQueryModule.java:249): Retrieving statements took 4.804 seconds.
+20.11.2015 20:24:52 INFO  [main] de.uni_leipzig.simba.cache.HybridCache.saveToFile(HybridCache.java:179): Serializing 31399 objects to /home/srautenberg/Desktop/windows/LDWPO/cache/2071633528.ser
+20.11.2015 20:25:22 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:159): Getting links ...
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:162): Got links in 4270ms.
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.io.SerializerFactory.getSerializer(SerializerFactory.java:22): Getting serializer with name NT
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:172): Using N3Serializer to serialize
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:191): Returned 3343 links above acceptance threshold.
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:192): Returned 32 links to review.
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:199): Mapping carried out in 54.253 seconds
+20.11.2015 20:25:26 INFO  [main] de.uni_leipzig.simba.controller.PPJoinController.run(PPJoinController.java:200): Done.
