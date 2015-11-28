@@ -15,7 +15,7 @@
 
 <http://lod.unicentro.br/LattesProduction/> 
 	dcterms:title "Lattes Production" ;
-	dcterms:description "Lattes Production encompasses entries of research paper references in journals of the researchers from the UNICENTRO/Brazil University. For representing data, it uses Bibo and Bibtex vocabularies." ;
+	dcterms:description "Lattes Production encompasses entries of paper references in journals of the researchers from the UNICENTRO University - Brazil. For representing data, it uses Bibo and Bibtex ontologies." ;
 	dcterms:publisher  <Sandro_Rautenberg>;
 	dcterms:issued "2015-11-01T00:00:00.000+01:00"^^xsd:dateTime ;
 	dcterms:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
